@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Resource, Api
 
 # Create app and config db.
 app = Flask(__name__)
@@ -9,7 +10,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///task.db"
 db = SQLAlchemy(app)
 
 # Data model
-class Task():
+class TaskModel(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(30), nullable=False)
 
