@@ -14,6 +14,10 @@ class TaskModel(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(30), nullable=False)
 
+  def __init__(self, name):
+      self.name = name
+      
+
 # Create data base (run this code to create db, then comment it out)
 # with app.app_context():
 #     db.create_all()
@@ -24,12 +28,16 @@ class TaskModel(db.Model):
 api = Api(app)
 
 class Task(Resource):
-  def get(self, task_id):
-    task = TaskModel.query.get(task_id)
-    if task:
-        return task.name
-    else:
-       return {"error": "not found!"}
+    def get(self, task_id):
+        task = TaskModel.query.get(task_id)
+        if task:
+            return task.name
+        else:
+            return {"error": "not found!"}
+        
+    def post(self):
+        task = TaskModel("Eat")
+        # to be continue....
 
 # Run app
 app.run(debug=True)
