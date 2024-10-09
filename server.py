@@ -1,14 +1,21 @@
 from flask import Flask
-from flask_restful import Resource, Api
+from flask_sqlalchemy import SQLAlchemy
 
+# Create app and config db.
 app = Flask(__name__)
-api = Api(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///task.db"
 
-class HelloWorld(Resource):
-    def get(self, arg):
-        return {'x': arg}
+# Create db and initialize
+db = SQLAlchemy(app)
 
-api.add_resource(HelloWorld, '/<string:arg>')
+# Data model
+class Task():
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(30), nullable=False)
 
+# Create data base
+with app.app_context():
+    db.create_all()
 
+# Run app
 app.run(debug=True)
