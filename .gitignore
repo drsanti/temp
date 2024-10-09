@@ -1,0 +1,7 @@
+__pycache__
+.venv
+.vscode
+examples
+full-stack-examples
+instance
+quizzes
