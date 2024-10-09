@@ -14,9 +14,23 @@ class TaskModel(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(30), nullable=False)
 
-# Create data base
-with app.app_context():
-    db.create_all()
+# Create data base (run this code to create db, then comment it out)
+# with app.app_context():
+#     db.create_all()
+
+# ------------------------------------------------------
+
+# API
+api = Api(app)
+
+class Task(Resource):
+  def get(self, task_id):
+    task = TaskModel.query.get(task_id)
+    if task:
+        return task.name
+    else:
+       return {"error": "not found!"}
 
 # Run app
 app.run(debug=True)
+api.add_resource(Task, "/<int:task_id>")
