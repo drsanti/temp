@@ -7,5 +7,4 @@ instance
 quizzes
 Obsidian
 .obsidian
-update.sh
-.gitignore
+./update.sh
