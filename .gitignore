@@ -7,4 +7,4 @@ instance
 quizzes
 Obsidian
 .obsidian
-./update.sh
+*.sh
