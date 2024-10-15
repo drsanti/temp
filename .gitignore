@@ -5,3 +5,7 @@ examples
 full-stack-examples
 instance
 quizzes
+Obsidian
+.obsidian
+update.sh
+.gitignore
