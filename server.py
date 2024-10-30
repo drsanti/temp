@@ -61,13 +61,10 @@ def init_database():
     with app.app_context():
         db.create_all()
 
-# if __name__ == '__main__':
-#     init_database()
-#     api.add_resource(Tasks, '/')
-#     api.add_resource(Task, '/<int:task_id>')
-#     app.run(debug=True)
 
 init_database()
 api.add_resource(Tasks, '/')
 api.add_resource(Task, '/<int:task_id>')
 app.run(debug=True)
+
+# flask --app server run --debug
