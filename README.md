@@ -1,3 +1,17 @@
+# Flet, the basic application
+
+## Final Quiz Guideline:
+
+> AI is allowed.
+
+- Widgets (Button, Text, Image, etc.)
+- Layout (Row, Column, Padding, Margin, Alignment)
+- Events Handling (Click, Change)
+- Client application(API, Server interface, etc.)
+- Back-end (API, Database, etc.)
+
+---
+
 # Note
 
 For the last example, `server.py`. You must `POST` requests to create a new record in database first before performing any other operations.

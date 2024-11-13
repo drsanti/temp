@@ -27,7 +27,7 @@ class Tasks(Resource):
         db.session.add(task)
         db.session.commit()
         tasks = TaskModel.query.all()
-        return [{'id': task.id, 'name': task.name} for task in tasks]  # Serialize tasks as a list of dicts
+        return [{'id': task.id, 'name': task.name} for task in tasks], 201  # Serialize tasks as a list of dicts
 
 # Handles a single task (e.g., GET /<task_id> for one task)
 class Task(Resource):
